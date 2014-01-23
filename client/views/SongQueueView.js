@@ -14,10 +14,8 @@ var SongQueueView = Backbone.View.extend({
     }, this);
 
     this.collection.on('ended', function() {
-      // console.log('ended');
+      this.render();
     }, this);
-
-    this.render();
   },
 
   render: function(){

@@ -6,15 +6,15 @@ var SongQueue = Songs.extend({
     Songs.prototype.initialize.apply(this, arguments);
 
     this.on('add', function(song) {
-
       if (this.length === 1) {
         this.playFirst();
       } else {
         this.push(song);
       }
+    }, this);
 
-      song.on('ended', this.test, this);
-
+    this.on('remove', function(song) {
+      this.remove(song);
     }, this);
 
     this.on('ended', function() {
