@@ -20,7 +20,7 @@ var AppModel = Backbone.Model.extend({
     }, this);
 
     params.library.on('ended', function(song) {
-      console.log('testing!!!');
+
     }, this);
   }
 

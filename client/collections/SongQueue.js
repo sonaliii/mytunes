@@ -3,12 +3,18 @@ var SongQueue = Songs.extend({
 
   initialize: function(){
 
+    Songs.prototype.initialize.apply(this, arguments);
+
     this.on('add', function(song) {
+
       if (this.length === 1) {
         this.playFirst();
       } else {
         this.push(song);
       }
+
+      song.on('ended', this.test, this);
+
     }, this);
 
     this.on('ended', function() {
